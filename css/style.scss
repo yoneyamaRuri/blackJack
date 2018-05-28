@@ -1,1 +1,97 @@
 @charset "UTF-8";
+
+
+
+body {
+  background: #e6e6fa;
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  font-family: "Meiryo", "メイリオ", "Arial", "ヒラギノ角ゴ Pro w3", "Hiragino Kaku Gothic Pro,osaka", "ＭＳ Ｐゴシック", sans-serif;
+  font-size: 15px;
+}
+
+/*ボタンの初期化*/
+button{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
+}
+
+#wholepage {
+  margin: 0 auto;
+  text-align: center;
+  width: 1000px;
+  height: 700px;
+  border: solid 3px #fff;
+  background: linear-gradient(135deg, #000000, rgba(26, 26, 255, 0.60), #99ff99);
+}
+
+h1 {
+  display: flex;
+  text-align: center;
+  height: 100px;
+  width: 100%;
+  font-size: 30px;
+  background: rgba(255, 255, 255, .2);
+  margin-top: 0px;
+    .maintitle {
+      margin: auto;
+    }
+}
+
+#mainTable {
+  margin: 20px;
+    .trampCard {
+      width: 120px;
+      height: 180px;
+      padding: 10px;
+    }
+}
+
+#dealerSpace {
+    .cardSpace{
+      width: 960px;
+      height: 200px;
+    }
+}
+
+#playerSpace {
+    .cardSpace{
+      width: 960px;
+      height: 200px;
+    }
+}
+
+.cardResult .count {
+  background: rgba(255, 255, 255, .2);
+  border: solid 2px #fff;
+  width: 50px;
+  color: #fff;
+  margin: auto;
+}
+
+.cardResult .winner {
+  margin-top: 15px;
+}
+
+.gameButton {
+  margin-top: 10px;
+    .gamebtn {
+      margin: 0 10px;
+      width: 60px;
+      height: 30px;
+      background: transparent;
+      border: solid 2px #fff;
+      color: #fff;
+        &:hover {
+          background-color: rgba(255, 255, 255, .2);
+        }
+        &:active{
+          background-color: rgba(255, 255, 255, .7);
+        }
+    }
+}

@@ -6,9 +6,40 @@
   <link rel="stylesheet" href="css/style.css">
   <title>blackJack</title>
 </head>
-
 <body>
-<header>
-</header>
+
+<div id="wholepage">
+<h1><div class="maintitle">blackJack</div></h1>
+<div id="mainTable">
+  <div id="dealerSpace">
+    <div class="cardResult">
+      <div class="cardSpace">
+        <image src="images/c01.png" class="trampCard">
+        <image src="images/c02.png" class="trampCard">
+      </div>
+      <div class="count">3</div>
+      <div class="winner"></div>
+    </div>
+  </div>
+  <div id="playerSpace">
+    <div class="cardResult">
+      <div class="cardSpace">
+        <image src="images/h01.png" class="trampCard">
+        <image src="images/h10.png" class="trampCard">
+      </div>
+      <div class="count">21</div>
+      <div class="winner">Black Jack!</div>
+    </div>
+    <div class="gameButton">
+      <button class="gamebtn reset">reset
+      <button class="gamebtn stand">stand
+      <button class="gamebtn hit">hit
+    </div>
+  </div>
+</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
