@@ -1,10 +1,18 @@
 (function(){
 
-var imgMarkCds = ['c', 'd', 'h', 's'];　//カードのマークを格納
+//カードのマークを格納
+var imgMarkCds = ['c', 'd', 'h', 's'];　
 
-// var imgName = imgMarkCds[card.mark] + (('00') + card.number).substr(-2) + '.png'; イメージ画像の生成
+//dealerのカード置き場
+var dealerCardArea = $('#dealerSpace .cardSpace');
 
-var cards = []; //カードを格納
+//playerのカード置き場
+var playerCardArea = $('#playerSpace .cardSpace');
+
+//var imgName = imgMarkCds[cards.mark] + card.number + '.png';  //イメージ画像の生成
+
+//カードを格納
+var cards = [];
 
 for (var i=1; i<=13; i++) {
   for (var h=0; h<4; h++) {
@@ -15,8 +23,7 @@ for (var i=1; i<=13; i++) {
   }
 }
 
-
-for(var i = cards.length - 1; i > 0; i--){　//52枚のカードをランダムに生成
+for(var i = cards.length - 1; i > 0; i--) {　//52枚のカードをランダムに生成
   var r = Math.floor(Math.random() * (i + 1));
   var tmp = cards[i];
   cards[i] = cards[r];
@@ -29,9 +36,15 @@ for(var i = cards.length - 1; i > 0; i--){　//52枚のカードをランダム�
 $('#playerSpace .start').on('click', function(){
   for (i=0; i<1; i++) {
     console.log(userDcards);
+    $(dealerCardArea).append('<image src="" class="trampCard">');
+    var dealerFirstCards = userDcards[i].mark;
+    $('#dealerSpace .trampCard').attr({src: dealerFirstCards + '.png'});
   }
   for (i=0; i<1; i++) {
     console.log(userPcards);
+    $(playerCardArea).append('<image src="" class="trampCard">');
+    var playerFirstCards = userPcards[i].mark;
+    console.log(playerFirstCards + '.png');
   }
 });
 
@@ -55,9 +68,12 @@ userPcards.push(tmp);
 console.log(cards);
 
 $('#playerSpace .hit').on('click', function(){
-
+  var moreCard = $(playerCardArea).append('<image src="" class="trampCard">');
+  var tmp = cards.shift();
+  userDcards.push(tmp);
+  console.log(tmp);
+  moreCard;
 });
-
 
 /*--------------------------------------------------------------------*/
 //dealerのCount数
@@ -67,7 +83,7 @@ var dealerCount = ($('#dealerSpace .count').text());
 var playerCount = ($('#playerSpace .count').text());
 
 //勝敗を表示する
-var playerJudge = ('#playerSpace .judge');
+var playerJudgeViw = ('#playerSpace .judge');
 
 //player・dealerのカード画像
 var cardSpace = $('#mainTable .trampCard');
@@ -77,14 +93,20 @@ var cardSpace = $('#mainTable .trampCard');
 */
 $('#playerSpace .stand').on('click', function() {
   if (dealerCount < playerCount && playerCount < 22) {
-    $(playerJudge).text('winner');
+    $(playerJudgeViw).text('winner');
   } else if (playerCount < dealerCount && dealerCount < 22) {
-    $(playerJudge).text('lose');
+      $(playerJudgeViw).text('winner');
+  } else if (dealerCount < playerCount && playerCount > 21) {
+      $(playerJudgeViw).text('lose');
   } else {
-    console.log('other');
+      $(playerJudgeViw).text('drow');
   }
 });
 
+$(window).on('click', function(){
+  $(dealerCount).text('1');
+  $(playerCount).text('1');
+});
 
 /*
 *トランプimg削除、count数リセット
