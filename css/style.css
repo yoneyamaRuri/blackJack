@@ -1,7 +1,7 @@
 @charset "UTF-8";
 body {
   background: #e6e6fa;
-  color: #fff;
+  color: #000;
   width: 100%;
   text-align: center;
   font-family: "Meiryo", "メイリオ", "Arial", "ヒラギノ角ゴ Pro w3", "Hiragino Kaku Gothic Pro,osaka", "ＭＳ Ｐゴシック", sans-serif;
@@ -22,7 +22,7 @@ button {
   margin: 0 auto;
   text-align: center;
   width: 1000px;
-  height: 700px;
+  height: 800px;
   border: solid 3px #fff;
   background: linear-gradient(135deg, #000000, rgba(26, 26, 255, 0.6), #99ff99);
 }
@@ -33,7 +33,6 @@ h1 {
   height: 100px;
   width: 100%;
   font-size: 30px;
-  background: rgba(255, 255, 255, 0.2);
   margin-top: 0px;
 }
 
@@ -69,8 +68,9 @@ h1 .maintitle {
   margin: auto;
 }
 
-.cardResult .winner {
+.cardResult .judge {
   margin-top: 15px;
+  height: 30px;
 }
 
 .gameButton {
