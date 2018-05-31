@@ -136,64 +136,33 @@
     $playerCardCounter.text(dealerCount);
   });
 
-  // $standBtn.on('click', function() {
-  //   // for (var dealerCount=0; dealerCount < 17; dealerCount ++) {
-  //   for (var i=0; i<50; i++) {
-  //     if (dealerCount < 17) {
-  //       var card = hitCard(cards);
-  //       dealerCount += card.number; //.numberの取得が出来ない
-  //       userDcards.push(card);
-  //
-  //       //画面に反映
-  //       $dealerCardArea.append(getCardImgElm(card));
-  //       $dealerCardCounter.text(dealerCount);
-  //       // if (dealerCount > 16) {
-  //       //   break;
-  //       // }
-  //     } else {
-  //       break;
-  //     }
-  //   }
-  // });
-
-  // 勝敗判定
+  // ディーラーの手札を17以上まで増やす。その後勝敗判定
   $standBtn.on('click', function() {
     while(dealerCount < 17) {
       var card = hitCard(cards);
-      dealerCount += card.number; //.numberの取得が出来ない
+      dealerCount += card.number;
       userDcards.push(card);
 
       //画面に反映
       $dealerCardArea.append(getCardImgElm(card));
       $dealerCardCounter.text(dealerCount);
-      // if (dealerCount > 16) {
-      //   break;
-      // }
-    }
-
-    //dealerのCount数
-    // var dealerCount = $dealerCardCounter.text();
-    //
-    // //playerのCount数
-    // var playerCount = $playerCardCounter.text();
-
+    }　
     var resultText = getJudgeText(dealerCount, playerCount);
     $playerJudgeViw.text(resultText);
   });
 
-
   // トランプimg削除、count数リセット
-  $('#playerSpace .reset').on('click', function()　{ //クリックのon・offが出来たが、カードの初期化と再配置が出来ていない。
-    var $allCardSpace = $('#mainTable .trampCard');
-    $allCardSpace.remove();
-    dealerCounter = 0;
-    console.log(cards);
-
+  $('#playerSpace .reset').on('click', function()　{
     cards = createFirstCards();
     userDcards = [];
     userPcards = [];
     dealerCount = 0;
     playerCount = 0;
+
+    $('#mainTable .trampCard').remove();
+    $dealerCardCounter.text(dealerCount);
+    $playerCardCounter.text(playerCount);
+    $playerJudgeViw.text('');
 
     firstButtonClick = false;
   });

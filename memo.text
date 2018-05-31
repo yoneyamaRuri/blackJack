@@ -53,9 +53,15 @@ hitの枚数制限
 
 午後やること
 ・ディーラーの手札が16以下だった時の処理する　//カードの表示はできるが、card.numberのsumが出来ていない。
-- standBtnを押しても勝敗判定の処理をしないようにする　→.numberの取得が出来ていないので、停止の使用がない
-- dealerのカードを引く（17以上になるまで繰り返し）
+- standBtnを押しても勝敗判定の処理をしないようにする　
+- dealerのカードを引く（17以上になるまで繰り返し）　→.numberの取得が出来ていないので、停止の使用がない。ここは.numberの取得が出来ればforを止められるはず
 - dealerの手札が17以上になったら勝敗判定を行う
+
+standを押した時のディーラーの手札.numberの取得が出来ていないです。
+この数が処理できれば、
+「ディーラーの手札が16以下だった時の処理する」→「dealerの手札が17以上になったら勝敗判定を行う」という処理が出来ると思っています。
+restartボタンは、そもそもの処理方法が間違っていたので、
+処理のリセットと再処理という処理方法に直さなければいけないと思っています。
 
 ■ボタン制御
 ・startボタン
@@ -65,3 +71,17 @@ hitの枚数制限
 -　カードが2枚以上ある状態でないと押せない
 ・standボタン
 -　カードが2枚以上ある状態でないと押せない
+
+process.stdin.resume();
+process.stdin.setEncoding('utf8');
+// 自分の得意な言語で
+// Let's チャレンジ！！
+
+掛け算 (paizaランク D 相当)　paiza
+process.stdin.on('data', function (chunk) {
+    var line = chunk.toString();
+    var inputs = line.trim().split("\n");
+
+
+    console.log(inputs[0] * inputs[1]);
+});
